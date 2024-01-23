@@ -3,7 +3,7 @@ const main_menu = document.getElementById("main_menu");
 const start_screen = document.getElementById("start_screen");
 const play = document.getElementById("play");
 const info = document.getElementById("info");
-const start_controls = document.getElementById("start_controls");
+const controls = document.getElementById("controls");
 
 const info_screen = document.getElementById("info_screen");
 const info_paragraphs = document.getElementsByClassName("paragraphs")[0];
@@ -12,16 +12,12 @@ const info_left = document.getElementById("info_left");
 const info_right = document.getElementById("info_right");
 const info_exit = document.getElementById("info_exit");
 
-const start_controls_screen = document.getElementById("start_controls_screen");
-const start_controls_exit = document.getElementById("start_controls_exit");
+const controls_screen = document.getElementById("controls_screen");
+const controls_exit = document.getElementById("controls_exit");
 
 const pause_screen = document.getElementById("pause_screen");
 const resume = document.getElementById("resume_game");
-const pause_controls = document.getElementById("pause_controls");
 const pause_exit = document.getElementById("pause_exit");
-
-const pause_controls_screen = document.getElementById("pause_controls_screen");
-const pause_controls_exit = document.getElementById("pause_controls_exit");
 
 const game_over_screen = document.getElementById("game_over_screen");
 const final_score = document.getElementById("final_score");
@@ -66,13 +62,13 @@ info_exit.onclick = function() {
     start_screen.style.display = "block";
 }
 
-start_controls.onclick = function() {
+controls.onclick = function() {
     start_screen.style.display = "none";
-    start_controls_screen.style.display = "block";
+    controls_screen.style.display = "block";
 }
 
-start_controls_exit.onclick = function() {
-    start_controls_screen.style.display = "none";
+controls_exit.onclick = function() {
+    controls_screen.style.display = "none";
     start_screen.style.display = "block";
 }
 
@@ -85,20 +81,11 @@ resume.onclick = function() {
     pause_screen.style.display = "none";
 }
 
-pause_controls.onclick = function() {
-    pause_controls_screen.style.display = "block";
-}
-
-pause_controls_exit.onclick = function() {
-    pause_controls_screen.style.display = "none";
-}
-
 pause_exit.onclick = function() {
     returnMainMenu();
 }
 
 function closePauseMenu() {
-    pause_controls_screen.style.display = "none";
     pause_screen.style.display = "none";
 }
 

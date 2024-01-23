@@ -23,7 +23,7 @@
             background-color: rgba(0,0,0,0.4);
         }
 
-        #start_screen, #info_screen, #start_controls_screen, #pause_screen_content, #pause_controls_screen, #game_over_screen_content {
+        #start_screen, #info_screen, #controls_screen, #pause_screen_content, #game_over_screen_content {
             background-color: #fefefe;
             padding: 15px;
             border-radius: 10px;
@@ -35,7 +35,7 @@
             transform: translate(-50%, -50%);
         }
 
-        #info_screen, #start_controls_screen, #pause_screen, #pause_controls_screen, #game_over_screen {
+        #info_screen, #controls_screen, #pause_screen, #game_over_screen {
             display: none;
         }
 
@@ -95,7 +95,7 @@
             padding-right: 35px;
         }
 
-        #start_controls_screen, #pause_controls_screen {
+        #controls_screen {
             width: 475px;
         }
 
@@ -272,7 +272,7 @@
             <h2 class="menu_title">Tetris</h2>
             <button id="play">Play</button>
             <button id="info">Info</button>
-            <button id="start_controls">Controls</button>
+            <button id="controls">Controls</button>
         </div>
         <div id="info_screen">
             <h2 class="menu_title">Gameplay Info</h2>
@@ -292,23 +292,17 @@
             </div>
             <button id="info_exit">Main Menu</button>
         </div>
-        <div id="start_controls_screen">
+        <div id="controls_screen">
             <h2 class="menu_title">Controls</h2>
             <img src="Controls.png" alt="Image unavailable"></img>
-            <button id="start_controls_exit">Back</button>
+            <button id="controls_exit">Back</button>
         </div>
     </div>
     <div id="pause_screen">
         <div id="pause_screen_content">
             <h2 class="menu_title">Paused</h2>
             <button id="resume_game">Resume</button>
-            <button id="pause_controls">Controls</button>
             <button id="pause_exit">Main Menu</button>
-        </div>
-        <div id="pause_controls_screen">
-            <h2 class="menu_title">Controls</h2>
-            <img src="Controls.png" alt="Image unavailable"></img>
-            <button id="pause_controls_exit">Back</button>
         </div>
     </div>
     <div id="game_over_screen">
