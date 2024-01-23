@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Pong</title>
+   <style>
+       body {
+           overflow: hidden;
+           background-color: #f5f5eb;
+       }
+
+       #main_menu, #winner_screen, #pause_screen {
+            display: block;
+            position: fixed;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        #select_game_mode, #winner_screen, #pause_screen, #rules_screen, #controls_screen {
+            display: none;
+        }
+
+        #start_screen, #select_game_mode, #winner_screen_content, #pause_screen_content, #rules_screen, #controls_screen {
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 10px;
+            width: 475px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 100;
+        }
+
+        button {
+            display: block;
+            background-color: #428061;
+            border: none;
+            color: #FFFFFF;
+            font-size: 16px;
+            padding: 15px 32px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 15px auto;
+        }
+
+        button:hover {
+            background-color: #36664E;
+        }
+
+        button:focus-visible {
+            outline: 2px solid rgb(0,0,0);
+        }
+
+        #game_mode_exit {
+            background-color: #FFFFFF;
+            color: #000000;
+            padding: 10px 32px;
+            margin: 10px auto;
+        }
+
+        #game_mode_exit:hover {
+            text-decoration: underline;
+        }
+
+       h1 {
+           text-align: center;
+           font-family: Verdana, Geneva, Tahoma, sans-serif;
+           margin-top: 65px;
+           font-size: 45px;
+           font-weight: 100;
+       }
+
+       #board {
+            background-color: #2C3E50;
+            width: 800px;
+            height: 600px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            z-index: 1;
+       }
+
+       p {
+            text-align: center;
+            margin-bottom: 30px;
+       }
+
+       img {
+            display: block;
+            margin: 0 auto;
+       }
+   </style>
+</head>
+<body>
+    <h1>Pong</h1>
+    <div id="main_menu">
+        <div id="start_screen">
+            <h2>Pong</h2>
+            <button id="play">Play</button>
+            <button id="rules">Rules</button>
+            <button id="controls">Controls</button>
+        </div>
+        <div id="select_game_mode">
+            <h2>Select a Game</h2>
+            <button id="pvp">Player vs Player</button>
+            <button id="pvc">Player vs Computer</button>
+            <button id="game_mode_exit" class="back">Back</button>
+        </div>
+        <div id="rules_screen">
+            <h2>Rules</h2>
+            <p>First to 10 points wins</p>
+            <button id="rules_exit">Back</button>
+        </div>
+        <div id="controls_screen">
+            <h2>Controls</h2>
+            <img src="Controls.png" alt="Image unavailable. Escape to pause. 'W' for player 1 up. 'S' for player 1 down. Up arrow for player 2 up. Down arrow for player 2 down."></img>
+            <button id="controls_exit">Back</button>
+        </div>
+    </div>
+    <div id="pause_screen">
+        <div id="pause_screen_content">
+            <h2>Paused</h2>
+            <button id="resume_game">Resume</button>
+            <button id="pause_exit">Main Menu</button>
+        </div>
+    </div>
+    <div id="winner_screen">
+        <div id="winner_screen_content">
+            <h2 id="winner">Winner</h2>
+            <button id="restart_game">Play Again</button>
+            <button id="winner_exit">Main Menu</button>
+        </div>
+    </div>
+    <canvas id="board"></canvas>
+    <script src="game.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>
