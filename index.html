@@ -23,7 +23,7 @@
             background-color: rgba(0,0,0,0.4);
         }
 
-        #game_select_screen {
+        #game_select_screen, #info_screen {
             background-color: #fefefe;
             padding: 15px;
             border-radius: 10px;
@@ -33,6 +33,22 @@
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+        }
+
+        #info_screen {
+            display: none;
+        }
+
+        #info_screen {
+            width: 450px;
+            padding: 8px 35px;
+        }
+
+        #info_screen p {
+            font-family: sans-serif;
+            text-align: center;
+            margin: 23px 0px;
+            line-height: 20px;
         }
 
         button {
@@ -70,6 +86,15 @@
             <h2 class="menu_title">Select a Game</h2>
             <button id="pong">Pong</button>
             <button id="tetris">Tetris</button>
+            <button id="info">Info</button>
+        </div>
+        <div id="info_screen">
+            <h2 class="menu_title">Game Info</h2>
+            <div class="paragraphs">
+                <p>Currently, the games don't have mobile support.</p>
+                <p>These games use JavaScript to run. Please make sure you don't have any extensions that block JavaScript.</p>
+            </div>
+            <button id="info_exit">Close</button>
         </div>
     </div>
     <script src="menu.js"></script>
