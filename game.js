@@ -1,5 +1,5 @@
 /*
-Completion Time: 3 weeks - (5 day vacation during this time)
+Completion Time: 3 weeks - (Took 5 days off within this time)
 */
 const rows_above_grid = 3;
 const grid_w = 10;
