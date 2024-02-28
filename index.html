@@ -4,7 +4,7 @@
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>Select a Game</title>
+   <title>Select an Option</title>
    <style>
         body {
             overflow: hidden;
@@ -23,7 +23,7 @@
             background-color: rgba(0,0,0,0.4);
         }
 
-        #game_select_screen, #info_screen {
+        #skill_set_screen, #html_css_screen, #game_select_screen, #info_screen {
             background-color: #fefefe;
             padding: 15px;
             border-radius: 10px;
@@ -35,7 +35,7 @@
             transform: translate(-50%, -50%);
         }
 
-        #info_screen {
+        #html_css_screen, #game_select_screen, #info_screen {
             display: none;
         }
 
@@ -82,6 +82,15 @@
 </head>
 <body>
     <div id="main_menu">
+        <div id="skill_set_screen">
+            <h2 class="menu_title">Select an Option</h2>
+            <button id="html_css">HTML and CSS Projects</button>
+            <button id="javascript">JavaScript Projects</button>
+        </div>
+        <div id="html_css_screen">
+            <h2 class="menu_title">Select an Option</h2>
+            <button id="google">Google Website Replica</button>
+        </div>
         <div id="game_select_screen">
             <h2 class="menu_title">Select a Game</h2>
             <button id="pong">Pong</button>
