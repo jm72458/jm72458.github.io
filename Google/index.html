@@ -1,1 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Google</title>
+   <link href="css/bootstrap-4.5.0.css" rel="stylesheet">
+   <style>
+      nav {
+         margin-top: 5px;
+         margin-left: 1.5px;
+         margin-right: 14px;
+      }
+      .navbar-light .navbar-nav .nav-link {
+         font-family: Arial, sans-serif;
+         font-size: 13px;
+         color: #000000;
+         opacity: 0.75;
+         display: inline-block;
+         overflow: hidden;
+         margin: 0px;
+         padding: 0px;
+      }
+      .navbar-light .navbar-nav .nav-link:hover {
+         text-decoration: underline;
+         text-decoration-color: #000000;
+         color: #000000;
+         opacity: 0.75;
+      }
+      .navbar-light .navbar-nav .nav-link:active{
+         text-decoration: underline;
+         text-decoration-color: #000000;
+         color: #000000;
+         opacity: 0.75;
+      }
+      .nav-item.dropdown .nav-link{
+         width: 30px;
+         height: 30px;
+         line-height: 28px;
+         background: transparent url("images/ninesquares.png");
+         border: none;
+         background-repeat: no-repeat;
+         background-position: -33px 4.25px;
+	      outline: none;
+	      position: relative;
+      }
+      .nav-item.dropdown .nav-link:hover {
+         background-position: -73px 4.25px;
+      }
+      .dropdown-menu.show {
+         height: 439px;
+         width: 319px;
+         overflow-y: auto;
+         overflow-x: hidden;
+         position: absolute;
+         margin-left: -204px;
+         margin-top: 5px;
+         border-radius: 10px;
+         -webkit-box-shadow: 0px 1px 7px 0.5px rgba(0,0,0,.15) !important;
+         -moz-box-shadow: 0px 1px 7px 0.5px rgba(0,0,0,.15) !important;
+         box-shadow: 0px 1px 7px 0.5px rgba(0,0,0,.15) !important;
+         padding-left: 30px;
+         padding-right: 0px;
+         padding-top: 16px;
+         padding-bottom: 25px;
+      }
+      .dropdown-menu .row div {
+         height: 96px;
+         width: 96px;
+         padding: 6px;
+         text-align: center;
+      }
+      .dropdown-menu .row div a {
+         border-radius: 8px;
+         color: #000000;
+         height: 83px;
+         width: 84px;
+         display: inline-block;
+      }
+      .dropdown-menu .row div a:hover {
+         background-color: #f6fafe;
+         border-color: #2962ff;
+         text-decoration: none;
+         cursor: pointer;
+      }
+      .dropdown-menu .row div a:active {
+         background-color: #e8f0fd;
+      }
+      .dropdown-item {
+         vertical-align: top;
+         margin: 0 auto;
+         width: 53px;
+         height: 53px;
+         background-image: url("images/dropIcons.png");
+         background-repeat: no-repeat;
+         background-size: 53px 2353px;
+         user-select: none;
+      }
+      .dropdown-item:focus, .dropdown-item:active {
+         background-color: transparent;
+         border: 0px;
+      }
+      .dropdown-label {
+         font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+         font-size: 14px;
+         line-height: 18px;
+         width: 76px;
+         height: 17px;
+         text-overflow: ellipsis;
+         user-select: none;
+      }
+      .dropdown-divider {
+         width: 100%;
+      }
+      #moredrop {
+         font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+         font-size: 14px;
+         line-height: 16px;
+         text-align: center;
+         color: #1a73e8;
+         border: 1px;
+         border-color: #DFE1E5;
+         border-radius: 4px;
+         border-style: solid;
+         background-color: #ffffff;
+         position: absolute;
+         padding: 10px 24px;
+         width: 161.8px;
+         margin-top: 16px;
+         margin-left: 0px;
+         margin-right: 0px;
+         margin-bottom: 20px;
+      }
+      .btn.btn-danger.navbar-btn {
+         font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+         display: inline-block;
+         font-size: 14px;
+         font-weight: 500;
+         border-color: #4285f4;
+         background: rgb(26, 115, 232);
+         border: 1px solid transparent;
+         color: #ffffff;
+         line-height: 16px;
+         margin-top: 2px;
+         margin-right: 0px;
+         min-width: 96px;
+         padding: 9px 23px;
+         text-align: center;
+         vertical-align: middle;
+         -webkit-border-radius: 4px;
+         border-radius: 4px;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+      }
+      .btn.btn-danger.navbar-btn:hover {
+         -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.15);
+         -moz-box-shadow: 0 1px 0 rgba(0,0,0,.15);
+         box-shadow: 0 1px 0 rgba(0,0,0,.15);
+      }
+      .btn.btn-danger.navbar-btn:focus {
+         outline: none !important;
+         box-shadow: none !important;
+         border-color: #4285f4;
+      }
+      .btn.btn-danger.navbar-btn:active {
+         -webkit-box-shadow: inset 0 2px 0 rgba(0,0,0,.15) !important;
+         -moz-box-shadow: inset 0 2px 0 rgba(0,0,0,.15) !important;
+         box-shadow: inset 0 2px 0 rgba(0,0,0,.15) !important;
+         outline: none !important;
+         background: -webkit-linear-gradient(top,#3c7ae4,#3f76d3);
+      }
+      h1 {
+         font-family: Futura, sans-serif;
+         font-size: 80px;
+         text-align: center;
+         font-weight: bold;
+         height: 150px;
+         width: auto;
+         padding-top: 130px;
+         text-align: center;
+         margin: auto;
+      }
+      #logo {
+         aspect-ratio: auto 272 / 92;
+         display: block;
+         margin: 0 auto;
+         margin-top: 196px;
+         margin-bottom: -80px;
+      }      
+      .logoblue{
+         color: #4285F4;
+      }
+      .logored{
+         color: #DB4437;
+      }
+      .logoyellow{
+         color: #F4B400;
+      }
+      .logogreen{
+         color: #0F9D58;
+      }
+      .searchBox{
+         width: 584px;
+         text-align: center;
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top: 106px;
+         position: relative;
+      }
+      .searchBox input.form-control {
+         font-family: Arial, sans-serif;
+         font-size: 16px;
+         color: #000000;
+         border-radius: 30px;
+         height: 45px;
+         padding-left: 47px;
+         padding-right: 99px;
+         padding-bottom: 8px;
+         border-color: #DFE1E5;
+         background-image: url("images/searchIcon.png"), url("images/voiceIcon.png");
+         background-position: 17px 13.5px, 547px 11px;
+         background-repeat: no-repeat, no-repeat;
+         background-size: 14px 14.8px, 14.5px 20px;
+      }
+      .searchBox input:hover {
+         -webkit-box-shadow: 0px 1px 7px 0.5px rgba(0,0,0,.15) !important;
+         -moz-box-shadow: 0px 1px 7px 0.5px rgba(0,0,0,.15) !important;
+         box-shadow: 0px 1px 7px 0.5px rgba(0,0,0,.15) !important;
+         outline: none !important;
+      }
+      .searchBox input:focus {
+         -webkit-box-shadow: none!important;
+         -moz-box-shadow: none!important;
+         box-shadow: none!important;
+         outline: none !important;
+      }
+      #searchbarautocomplete-list {
+         font-family: Arial, sans-serif;
+         font-size: 16px;
+         color: #000000;
+         z-index: 2;
+         text-align: left;
+         padding-left: 48px;
+         padding-top: 10px;
+      }
+      #maincontent .row div{
+         margin: 0 auto;
+         margin-top: 18px;
+         text-align: center;
+         width: 1139px;
+         display: block;
+         padding-right: 10px;
+      }
+      .btn {
+         font-family: Arial, sans-serif;
+         background-color: #f2f2f2;
+         background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+         border: 1px;
+         border-color: #f2f2f2;
+         border-radius: 4px;
+         border-style: solid;
+         font-size: 14px;
+         height: 36px;
+         line-height: 34px;
+         min-width: 54px;
+         padding-left: 16px;
+         padding-right: 16px;
+         padding-bottom: 0px;
+         padding-top: 0px;
+         text-align: center;
+         margin-left: 4px;
+         margin-right: 4px;
+         margin-top: 11px;
+         margin-bottom: 11px;
+         color: #5F6368;
+         display: inline-block;
+         text-align: center;
+         position: relative;
+         user-select: none;
+         z-index: 1;
+      }
+      .btn:hover {
+         border-color: #c6c6c6;
+         background-color: #f8f8f8;
+         box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+      }
+      .btn:focus {
+         outline: none !important;
+         box-shadow: none;
+         border-color: #4d90fe;
+      }
+      #footer {
+         font-family: Arial, sans-serif;
+         background-color: #f2f2f2;
+         color: #222222;
+         line-height: 40px;
+         display: block;
+         font-size: 14px;
+         position: fixed;
+         width: 100%;
+         border-top: 1px solid #e4e4e4;
+         height: 41px;
+         margin: 0px;
+      }
+      span a.foot-link {
+         color: #5f6368;
+         padding-left: 24px;
+         display: inline-block;
+         margin: 0px;
+         line-height: 40px;
+         font-size: 14px;
+      }
+      span a.foot-link:hover {
+         color: #5f6368;
+         display: inline-block;
+         margin: 0px;
+         line-height: 40px;
+         font-size: 14px;
+         text-decoration: underline;
+         text-decoration-color: #5f6368;
+         text-decoration-style: solid;
+      }
+   </style>
+   <link rel="icon" href="favicon.png"/>
+</head>
+<body style="overflow-x: hidden">
+   <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent">       
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item pull-right">
+                  <div style="padding-left: 8.3px; padding-bottom: 1px">
+                     <a class="nav-link" style="width: 41px" href="https://about.google/?fg=1&utm_source=google-US&utm_medium=referral&utm_campaign=hp-header">About</a>
+                  </div>
+               </li>
+               <li class="nav-item">
+                  <div style="padding-left: 7.3px; padding-bottom: 1px;">
+                     <a class="nav-link" style="width: 38px" href="https://store.google.com/US?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-US">Store</a>
+                  </div>
+               </li>
+            </ul>
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <div style="padding-right: 7.5px; padding-top: 9px">
+                     <a class="nav-link" style="width: 40px" href="#">Gmail</a>
+                  </div>
+               </li>
+               <li class="nav-item">
+                  <div style="padding-right: 8px; padding-top: 9px">
+                     <a class="nav-link" style="width: 48px" href="#">Images</a>
+                  </div>
+               </li>
+               <li class="nav-item dropdown">
+                  <div style="padding-top: 5.25px">
+                     <button class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="row">
+                           <div>
+                              <a href="#">
+                                 <span class="dropdown-item" style="background-position: 0 -1207.5px;"></span>
+                                 <span class="dropdown-label">Account</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -115px;"></span>
+                                 <span class="dropdown-label">Search</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -690px;"></span>
+                                 <span class="dropdown-label">Maps</span>
+                              </a>
+                           </div>
+                        </div class="row">
+                        <div class="row">
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1092.5px;"></span>
+                                 <span class="dropdown-label">YouTube</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -172.5px;"></span>
+                                 <span class="dropdown-label">Play</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1667.5px;"></span>
+                                 <span class="dropdown-label">News</span>
+                              </a>
+                           </div>
+                        </div class="row">
+                        <div class="row">
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -402.5px;"></span>
+                                 <span class="dropdown-label">Gmail</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -2185px;"></span>
+                                 <span class="dropdown-label">Meet</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1552.5px;"></span>
+                                 <span class="dropdown-label">Contacts</span>
+                              </a>
+                           </div>
+                        </div class="row">
+                        <div class="row">
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1897.5px;"></span>
+                                 <span class="dropdown-label">Drive</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -2127.5px;"></span>
+                                 <span class="dropdown-label">Calender</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1035px;"></span>
+                                 <span class="dropdown-label">Translate</span>
+                              </a>
+                           </div>
+                        </div class="row">
+                        <div class="row">
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -517.5px;"></span>
+                                 <span class="dropdown-label">Photos</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -747.5px;"></span>
+                                 <span class="dropdown-label">Duo</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1437.5px;"></span>
+                                 <span class="dropdown-label">Shopping</span>
+                              </a>
+                           </div>
+                        </div class="row">
+                        <div class="dropdown-divider"></div>
+                        <div class="row">
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 0px;"></span>
+                                 <span class="dropdown-label">Finance</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1840px;"></span>
+                                 <span class="dropdown-label">Docs</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -862.5px;"></span>
+                                 <span class="dropdown-label">Sheets</span>
+                              </a>
+                           </div>
+                        </div class="row">
+                        <div class="row">
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -230px;"></span>
+                                 <span class="dropdown-label">Slides</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1955px;"></span>
+                                 <span class="dropdown-label">Books</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1782.5px;"></span>
+                                 <span class="dropdown-label">Blogger</span>
+                              </a>
+                           </div>
+                        </div class="row">
+                        <div class="row">
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -2242.5px;"></span>
+                                 <span class="dropdown-label">Hangouts</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 
+                                 <span class="dropdown-item" style="background-image: url(images/keepIcon.png); background-size: 53px;"></span>
+                                 <span class="dropdown-label">Keep</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -575px;"></span>
+                                 <span class="dropdown-label">Jamboard</span>
+                              </a>
+                           </div>
+                        </div class="row">
+                        <div class="row">
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -2300px;"></span>
+                                 <span class="dropdown-label">Earth</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1610px;"></span>
+                                 <span class="dropdown-label">Collections</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a>
+                                 <span class="dropdown-item" style="background-position: 0 -1322.5px;"></span>
+                                 <span class="dropdown-label">Arts and Culture</span>
+                              </a>
+                           </div>
+                        </div class="row">
+                        <button id="moredrop" href="#">More from Google</button>
+                     </div>
+                  </div>
+               </li>
+               <li class="nav-button">
+                  <div style="padding-left: 15.5px;">
+                     <a class="btn btn-danger navbar-btn" href="#">Sign in</a>
+                  </div>    
+               </li>
+            </ul>
+         </div>
+      </nav>
+   </header>
+   <div id="maincontent">
+      <!--<h1 class="align-center"><span class="logoblue">G</span><span class="logored">o</span><span class="logoyellow">o</span><span class="logoblue">g</span><span class="logogreen">l</span><span class="logored">e</span></h1>-->
+      <img id="logo" src="images/googleLogo.png" alt="Google Logo"> 
+      <form autocomplete="off" action="/action_page.php">
+         <div class="searchBox">
+            <input id="searchbar" class="form-control" type="search" aria-label="Search" maxlength="2048" autofocus role="combobox">
+         </div>
+      </form>
+      <div class="row">
+         <div>
+            <a id="urlChange" class="btn" href="#">Google Search</a>
+            <a class="btn" href="#">I'm Feeling Lucky</a>
+         </div>
+      </div>
+   </div>
 
+   <div id="footer" class="fixed-bottom row col-12">
+      <span style="float: left; margin-left: -9px">
+         <a class="foot-link" href="#">Advertising</a>
+         <a class="foot-link" href="#">Business</a>
+         <a class="foot-link" style="padding-left: 22px" href="#">How Search works</a>
+      </span>
+      <span style="float: right; margin-right: 15px">
+         <a class="foot-link" href="#">Privacy</a>
+         <a class="foot-link" style="padding-left: 22px;" href="#">Terms</a>
+         <a class="foot-link" href="#">Settings</a>
+      </span>
+   </div>
+   <script src="js/jquery-3.5.1.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap-4.5.0.js"></script>
+   <script src="js/extrafeatures.js"></script>
+</body>
+</html>
