@@ -8,6 +8,8 @@ const html_css = document.getElementById("html_css");
 const javascript = document.getElementById("javascript");
 
 const google = document.getElementById("google");
+const login = document.getElementById("login");
+
 
 const pong = document.getElementById("pong");
 const tetris = document.getElementById("tetris");
@@ -26,6 +28,10 @@ javascript.onclick = function() {
 
 google.onclick = function() {
     window.location.href = "https://jm72458.github.io/Google/index.html"
+}
+
+login.onclick = function() {
+    window.location.href = "https://jm72458.github.io/Login/index.html"
 }
 
 pong.onclick = function() {
