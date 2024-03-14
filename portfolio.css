@@ -64,7 +64,7 @@ nav {
     text-align: center;
 }
 
-.navItem:is(:focus, :hover) {
+.navItem:is(:active, :hover, :focus) {
     background-color: var(--mainThemeColor);
     color: #FFFFFF;
 }
@@ -277,6 +277,7 @@ nav {
 .description p, .description a {
     font-size: 0.7em;
     margin: 0.5em 0em;
+    font-family: sans-serif;
 }
 
 .description p:first-child {

@@ -19,3 +19,7 @@ function navHighlight() {
         }
     }
 }
+
+window.onload = function() {
+    document.getElementsByClassName("navItem")[0].classList.add("activeSection");
+};
