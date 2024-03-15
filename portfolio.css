@@ -1,8 +1,11 @@
 html {
     overflow-x: hidden;
+    max-width: 100%;
 }
 
 body {
+    overflow-x: hidden;
+    max-width: 100%;
     position: absolute;
     top: 0;
     margin: 0;
@@ -194,8 +197,6 @@ nav {
     font-size: 1.2em;
     font-family: sans-serif;
     text-align: center;
-    /*text-shadow: 0px 0px 5px var(--mainThemeColor), 0px 0px 10px var(--mainThemeColor), 0px 0px 10px var(--mainThemeColor),
-    0px 0px 20px var(--mainThemeColor);*/
     font-weight: bold;
 }
 
@@ -216,7 +217,7 @@ nav {
 #about p:last-child {
     margin: 2em auto;
     line-height: 1.3em;
-    width: 25em;
+    width: 90%;
 }
 
 #skillBoxes {
@@ -226,21 +227,22 @@ nav {
 }
 
 #skillBoxes div {
-    width: 4em;
-    height: 4em;
+    width: 2.5em;
+    height: 2.5em;
     padding: 1em;
     border: 5px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(to right, var(--secondaryThemeColor), var(--mainThemeColor));
-    margin: 3em 1em;
+    margin: 3em auto;
     margin-top: 2em;
 }
 
 #skillBoxes div img {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
     object-fit: contain;
     margin-bottom: 0.5em;
+    margin-top: -0.5em;
 }
 
 #skillBoxes div p {
@@ -250,23 +252,20 @@ nav {
 #projects div {
     display: flex;
     justify-content: center;
-    margin: 3em 1em;
+    text-align: center;
+    margin: 2em 0.5em;
 }
 
-#projects div:nth-child(odd) .description {
-    text-align: right;
-    display: block;
-}
-
-#projects div:nth-child(odd) .description a {
-    float: right;
+#projects div .description a {
+    margin: 0 auto;
 }
 
 #projects div a img {
-    width: 25em;
+    width: 9em;
     object-fit: cover;
     border: 2px solid  rgba(226, 232, 240, 0.4);
     border-radius: 0.25rem;
+    height: 100%;
 }
 
 .description {
@@ -282,11 +281,6 @@ nav {
 
 .description p:first-child {
     font-size: 1em;
-}
-
-.description:nth-child(odd) p:first-child {
-    font-size: 1em;
-    margin-bottom: 1em;
 }
 
 .description a:link, .description a:visited {
@@ -321,8 +315,61 @@ textarea {
     cursor: pointer;
 }*/
 
-@media screen and (min-width: 700px) {
-    /*.navItem:is(:focus, :hover) {
-        
-    }*/
+
+@media screen and (min-width: 992px) {
+    #projects div {
+        margin: 3em 1em;
+    }
+    
+    #projects div:nth-child(odd) .description {
+        text-align: right;
+        display: block;
+    }
+    
+    #projects div:nth-child(odd) .description a {
+        float: right;
+    }
+    
+    #projects div a img {
+        width: 25em;
+        object-fit: cover;
+    }
+    
+    .description p, .description a {
+        margin: 0.5em 0em;
+        text-align: left;
+    }
+
+    #projects div .description a {
+        margin: unset;
+    }
+
+    .description:nth-child(odd) p {
+        text-align: right;
+    }
+}
+
+
+@media screen and (min-width: 480px) {
+    #about p:last-child {
+        width: 25em;
+    }
+
+    #skillBoxes div {
+        width: 4em;
+        height: 4em;
+        margin: 3em 1em;
+        margin-top: 2em;
+    }
+
+    #skillBoxes div img {
+        width: 3em;
+        height: 3em;
+        margin-bottom: 0.5em;
+        margin-top: 0em;
+    }
+
+    #projects div a img {
+        width: 90%;
+    }
 }
