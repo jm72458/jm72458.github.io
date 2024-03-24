@@ -1,6 +1,6 @@
 html {
     overflow-x: hidden;
-    max-width: 100%;
+    min-width: 100%;
 
     --main-background: #0a1124;
     --mainThemeColor: #1A6EF4;
@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    max-width: 100%;
+    min-width: 100%;
     position: absolute;
     top: 0;
     margin: 0;
@@ -37,7 +37,7 @@ nav {
     width: 100%;
     top: 0;
     height: var(--navHeight);
-    z-index: 1;
+    z-index: 2;
 }
 
 #navMenu {
@@ -89,8 +89,8 @@ nav {
 #home {
     position: absolute;
     height: var(--homeHeight);
-    width: 100%;
-    background-color: #090a0f;
+    min-width: 100%;
+    background: #090a0f;
 }
 
 #introduction {
@@ -119,7 +119,7 @@ nav {
     color: var(--mainThemeColor);
 }
 
-#introduction a:link, #introduction a:visited {
+#viewWork a:link, #viewWork a:visited {
     --linkAnimationTime: 1s;
     --linkDelayTime: 0.7s;
     --linkHoverTime: 0.5s;
@@ -157,12 +157,12 @@ nav {
     -ms-animation-delay: var(--linkDelayTime);
 }
 
-#introduction a:hover {
+#viewWork a:hover {
     text-decoration: underline;
     color: #000000;
 }
 
-#introduction a span {
+#viewWork a span {
     height: 110%;
     width: 110%;
     display: block;
@@ -172,7 +172,7 @@ nav {
     margin: 0;
 }
 
-#introduction a:hover span {
+#viewWork a:hover span {
     margin-top: calc(-1 * var(--linkHeight));
 }
 
@@ -210,7 +210,11 @@ nav {
 }
 
 #about {
+    min-width: 100%;
+    background: transparent;
+    background: -webkit-linear-gradient(#090a0f 0%, #0a1124 100%);
     background: linear-gradient(to bottom, #090a0f 0%, #0a1124 100%);
+    background: -moz-linear-gradient(to bottom, #090a0f 0%, #0a1124 100%);
     margin: 0em;
     margin-top: var(--homeHeight);
 }
@@ -241,7 +245,9 @@ nav {
     padding: 1em;
     border: 5px solid;
     border-image-slice: 1;
+    border-image-source: -webkit-linear-gradient(left, var(--secondaryThemeColor), var(--mainThemeColor));
     border-image-source: linear-gradient(to right, var(--secondaryThemeColor), var(--mainThemeColor));
+    border-image-source: -moz-linear-gradient(to right, var(--secondaryThemeColor), var(--mainThemeColor));
     margin: 3em auto;
     margin-top: 2em;
 }
