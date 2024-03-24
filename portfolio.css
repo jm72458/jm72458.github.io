@@ -126,6 +126,7 @@ nav {
     width: 8em;
     height: var(--linkHeight);
     margin: 0 auto;
+    display: block;
     line-height: var(--linkHeight);
     font-family: sans-serif;
     text-decoration: none;
@@ -134,7 +135,6 @@ nav {
     overflow: hidden;
     font-size: 1em;
     opacity: 0;
-    padding: 0.8rem 1.8rem;
 
     /*This is the animation for letting the link slowly appear when the page loads*/
     animation: fadeIn var(--linkAnimationTime) forwards;
@@ -308,8 +308,6 @@ nav {
 
     #introduction a:link, #introduction a:visited {
         opacity: 0;
-        display: block;
-        padding: 0;
     
         /*This is to change the text color on hover*/
         transition: color var(--linkHoverTime);
