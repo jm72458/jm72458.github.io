@@ -138,19 +138,14 @@ nav {
 
     /*This is the animation for letting the link slowly appear when the page loads*/
     animation: fadeIn var(--linkAnimationTime) forwards;
-    animation-delay: var(--linkDelayTime);
     
     -webkit-animation: fadeIn var(--linkAnimationTime) forwards;
-    -webkit-animation-delay: var(--linkDelayTime);
     
     -moz-animation: fadeIn var(--linkAnimationTime) forwards;
-    -moz-animation-delay: var(--linkDelayTime);
     
     -o-animation: fadeIn var(--linkAnimationTime) forwards;
-    -o-animation-delay: var(--linkDelayTime);
     
     -ms-animation: fadeIn var(--linkAnimationTime) forwards;
-    -ms-animation-delay: var(--linkDelayTime);
 }
 
 #introduction a:hover {
@@ -308,6 +303,21 @@ nav {
 
     #introduction a:link, #introduction a:visited {
         opacity: 0;
+
+        animation: fadeIn var(--linkAnimationTime) forwards;
+    animation-delay: var(--linkDelayTime);
+    
+    -webkit-animation: fadeIn var(--linkAnimationTime) forwards;
+    -webkit-animation-delay: var(--linkDelayTime);
+    
+    -moz-animation: fadeIn var(--linkAnimationTime) forwards;
+    -moz-animation-delay: var(--linkDelayTime);
+    
+    -o-animation: fadeIn var(--linkAnimationTime) forwards;
+    -o-animation-delay: var(--linkDelayTime);
+    
+    -ms-animation: fadeIn var(--linkAnimationTime) forwards;
+    -ms-animation-delay: var(--linkDelayTime);
     
         /*This is to change the text color on hover*/
         transition: color var(--linkHoverTime);
