@@ -152,7 +152,6 @@ nav {
     -o-animation-delay: var(--linkDelayTime);
 
     -ms-animation: fadeIn var(--linkAnimationTime) forwards;
-    -ms-animation-delay: var(--linkDelayTime);
 }
 
 #introduction a:hover {
@@ -291,15 +290,19 @@ nav {
 
 .description a:link, .description a:visited {
     border: 2px solid var(--mainThemeColor);
-    padding: 0.8rem 1.8rem;
-    width: 5em;
+    height: var(--linkHeight);
+    line-height: var(--linkHeight);
+    width: 7em;
     text-align: center;
     text-decoration: none;
     color: var(--mainThemeColor);
+    display: block;
 }
 
 .description a:hover {
     text-decoration: underline;
+    color: #000000;
+    background-color: var(--mainThemeColor);
 }
 
 @media screen and (min-width: 992px) {
