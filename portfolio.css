@@ -68,13 +68,12 @@ nav {
     text-align: center;
 }
 
-.navItem:is(:hover, :active) {
+.navItem:is(:hover, :focus) {
     background-color: var(--mainThemeColor);
     color: #FFFFFF;
 }
 
-.navItem:focus {
-    background-color: transparent;
+.navItem:active {
     color: var(--mainThemeColor);
 }
 
@@ -138,7 +137,6 @@ nav {
 
     /*This is to change the text color on hover*/
     transition: color var(--linkHoverTime);
-    -webkit-transition: color var(--linkHoverTime);
 
     /*This is the animation for letting the link slowly appear when the page loads*/
     animation: fadeIn var(--linkAnimationTime) forwards;
@@ -154,7 +152,6 @@ nav {
     -o-animation-delay: var(--linkDelayTime);
 
     -ms-animation: fadeIn var(--linkAnimationTime) forwards;
-    -ms-animation-delay: var(--linkDelayTime);
 }
 
 #introduction a:hover {
@@ -167,7 +164,6 @@ nav {
     width: 110%;
     display: block;
     transition: margin-top var(--linkHoverTime);
-    -webkit-transition: margin-top var(--linkHoverTime);
     background-color: var(--mainThemeColor);
     margin: 0;
 }
