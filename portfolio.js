@@ -59,7 +59,7 @@ function createStars() {
 function randomStyle() {
     const left = randomInteger(0, 100) + "%";
     const size = randomFloat(0.03, 0.07) + "em";
-    const delay = randomInteger(-28, 28) + "s";
+    const delay = randomInteger(-25, 25) + "s";
     const duration = randomInteger(25, 28) + "s";
 
     return  "left: " + left + 
