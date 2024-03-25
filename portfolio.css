@@ -1,6 +1,7 @@
 html {
     overflow-x: hidden;
     min-width: 100%;
+    scroll-behavior: smooth;
 
     --main-background: #0a1124;
     --mainThemeColor: #1A6EF4;
@@ -68,16 +69,6 @@ nav {
     text-align: center;
 }
 
-.navItem:is(:hover, :active) {
-    background-color: var(--mainThemeColor);
-    color: #FFFFFF;
-}
-
-.navItem:focus {
-    background-color: transparent;
-    color: var(--mainThemeColor);
-}
-
 .navItem:visited {
     color: #FFFFFF;
 }
@@ -119,7 +110,7 @@ nav {
     color: var(--mainThemeColor);
 }
 
-#introduction a:link, #introduction a:visited {
+#homeLink:link, #homeLink:visited {
     --linkAnimationTime: 1s;
     --linkDelayTime: 0.7s;
     --linkHoverTime: 0.5s;
@@ -134,16 +125,32 @@ nav {
     border: 2px solid var(--mainThemeColor);
     overflow: hidden;
     font-size: 1em;
-    opacity: 1;
+    opacity: 0;
+
+    /*This is the animation for letting the link slowly appear when the page loads*/
+    animation: fadeIn var(--linkAnimationTime, 1s) forwards;
+    animation-delay: var(--linkDelayTime);
+
+    -webkit-animation: fadeIn var(--linkAnimationTime, 1s) forwards;
+    -webkit-animation-delay: var(--linkDelayTime);
+
+    -moz-animation: fadeIn var(--linkAnimationTime, 1s) forwards;
+    -moz-animation-delay: var(--linkDelayTime);
+
+    -o-animation: fadeIn var(--linkAnimationTime, 1s) forwards;
+    -o-animation-delay: var(--linkDelayTime);
+
+    -ms-animation: fadeIn var(--linkAnimationTime, 1s) forwards;
+    -ms-animation-delay: var(--linkDelayTime);
 }
 
-#introduction a:hover {
+#homeLink:hover {
     text-decoration: underline;
     color: #000000;
     background-color: var(--mainThemeColor);
 }
 
-#introduction a span {
+#homeLink span {
     display: none;
 }
 
@@ -211,9 +218,10 @@ nav {
 }
 
 #skillBoxes div {
-    width: 2.8em;
+    width: 3.1em;
     height: 2.8em;
-    padding: 1em;
+    padding: 0.8em;
+    padding-top: 1em;
     border: 5px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(to right, var(--secondaryThemeColor), var(--mainThemeColor));
@@ -233,85 +241,85 @@ nav {
     height: 1em;
 }
 
-#projects div {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin: 2em 0.5em;
+.projectContainer {
+    margin: 2em auto;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.3);
+    background-color: #222222;
+    border-radius: 10px;
+    width: 85%;
+    padding-bottom: 1em;
 }
 
-#projects div .description a {
-    margin: 0 auto;
+.projectImage {
+    display: block;
+    width: 100%;
 }
 
-#projects div a img {
-    width: 9em;
-    object-fit: cover;
-    border: 2px solid  rgba(226, 232, 240, 0.4);
-    border-radius: 0.25rem;
-    height: 100%;
+.projectImage img {
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+}
+
+.projectName {
+    margin: 0 5%;
+    line-height: 1.3em;
+    font-size: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+    font-weight: bold;
 }
 
 .description {
-    display: flex;
-    flex-direction: column;
+    --descriptionHeight: 1.4em;
+    margin: 0 5%;
+    padding: 0;
+    height: var(--descriptionHeight);
+    overflow: hidden;
 }
 
-.description p, .description a {
-    font-size: 0.7em;
-    margin: 0.5em 0em;
-    font-family: sans-serif;
-}
-
-.description p:first-child {
-    font-size: 1em;
-}
-
-.description a:link, .description a:visited {
-    border: 2px solid var(--mainThemeColor);
-    height: var(--linkHeight);
-    line-height: var(--linkHeight);
-    width: 7em;
-    text-align: center;
+.description * {
+    color: rgba(255,255,255,0.8);
     text-decoration: none;
-    color: var(--mainThemeColor);
+    font-size: 0.7em;
+    height: var(--descriptionHeight);
+    font-family: sans-serif;
+    margin: 0.3em 0;
+    padding: 0;
+    transition: margin-top 0.5s;
+    -webkit-transition: margin-top 0.5s;
+    white-space: nowrap;
+}
+
+.description p {
+    display: none;
+}
+
+.projectContainer:hover .description p {
+    margin-top: calc(-1 * var(--descriptionHeight));
+}
+
+.description a {
     display: block;
+    width: 30%;
+    transition: color 0.5s;
+    -webkit-transition: color 0.5s;
 }
 
 .description a:hover {
-    text-decoration: underline;
-    color: #000000;
-    background-color: var(--mainThemeColor);
+    color: var(--mainThemeColor);
 }
 
+/*Styles that will apply to desktop and laptops*/
 @media screen and (min-width: 992px) {
-    .navItem:is(:active, :focus) {
+    .navItem:is(:hover, :active, :focus) {
         background-color: var(--mainThemeColor);
         color: #FFFFFF;
     }
 
-    #introduction a:link, #introduction a:visited {
-        opacity: 0;
-    
+    #introduction a:link, #introduction a:visited {    
         /*This is to change the text color on hover*/
         transition: color var(--linkHoverTime);
         -webkit-transition: color var(--linkHoverTime);
-
-        /*This is the animation for letting the link slowly appear when the page loads*/
-        animation: fadeIn var(--linkAnimationTime) forwards;
-        animation-delay: var(--linkDelayTime);
-
-        -webkit-animation: fadeIn var(--linkAnimationTime) forwards;
-        -webkit-animation-delay: var(--linkDelayTime);
-
-        -moz-animation: fadeIn var(--linkAnimationTime) forwards;
-        -moz-animation-delay: var(--linkDelayTime);
-
-        -o-animation: fadeIn var(--linkAnimationTime) forwards;
-        -o-animation-delay: var(--linkDelayTime);
-
-        -ms-animation: fadeIn var(--linkAnimationTime) forwards;
-        -ms-animation-delay: var(--linkDelayTime);
     }
 
     #introduction a:hover {
@@ -334,36 +342,10 @@ nav {
         margin-top: calc(-1 * var(--linkHeight));
     }
 
-    #projects div {
-        margin: 3em 1em;
-    }
-    
-    #projects div:nth-child(odd) .description {
-        text-align: right;
-        display: block;
-    }
-    
-    #projects div:nth-child(odd) .description a {
-        float: right;
-    }
-    
-    #projects div a img {
-        width: 25em;
-        object-fit: cover;
-    }
-    
-    .description p, .description a {
-        margin: 0.5em 0em;
-        text-align: left;
+    .projectContainer {
+        width: 45%;
     }
 
-    #projects div .description a {
-        margin: unset;
-    }
-
-    .description:nth-child(odd) p {
-        text-align: right;
-    }
 }
 
 
@@ -386,7 +368,8 @@ nav {
         margin-top: 0em;
     }
 
-    #projects div a img {
-        width: 90%;
+    /*Description under projects only shows view project when width is too small to show the description. This is to show the description again when the width is big enough again.*/
+    .description p {
+        display: block;
     }
 }
