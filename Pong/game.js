@@ -1,5 +1,6 @@
 /*
 Completion Time: 2 days
+Not completed: Smoothing out touch controls, player vs player for touch controls
 */
 const canvas = document.getElementById('board');
 const canvas_w = 1600;
@@ -79,7 +80,7 @@ if(canvas.getContext) {
     drawScores();
 }
 
-/*---------------------------------------------Controls-------------------------------------------------*/
+/*---------------------------------------------Keyboard Controls-------------------------------------------------*/
 //Link functions to keys
 const move_player = { 
     87: {pressed: false, func: p1MoveUp}, 
@@ -152,6 +153,43 @@ const executeMoves = () => {
         move_player[key].pressed && move_player[key].func()
     })
 }
+
+/*---------------------------------------------Touch Controls-------------------------------------------------*/
+let touchY = "";
+//let touchX = "";
+
+//Find start position
+document.addEventListener("touchstart", (e) => {
+    touchY = e.changedTouches[0].pageY;
+})
+
+//Activate movements when players swipes up or down
+document.addEventListener("touchmove", (e) => {
+    const newY = e.changedTouches[0].pageY;
+    const swipeDistance = newY - touchY;
+    if (swipeDistance < 0) {
+        p1MoveUp();
+    }
+    else {
+        p1MoveDown();
+    }
+    touchY = newY;
+})
+
+/* For touch - trying to find the Y position within the canvas and placing the player right where their finger is at.
+canvas.addEventListener("touchmove", (e) => {
+    const y =  e.changedTouches[0].pageY-canvas.position().top;
+    p1MoveTouch(y);
+})
+
+function p1MoveTouch(newPosition) {
+    if (p1_y > 0 && !pause && game_active) {
+        ctx = canvas.getContext('2d');
+        ctx.clearRect(p1_x, p1_y, paddle_w, paddle_h); 
+        p1_y = newPosition;
+        drawP1();
+    }
+}*/
 
 /*---------------------------------------------Drawing Game Objects-------------------------------------------------*/
 function drawP1() {

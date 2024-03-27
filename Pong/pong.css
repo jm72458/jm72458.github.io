@@ -1,0 +1,152 @@
+html {
+    overflow: hidden;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    font-size: calc(1em + 1vw);
+    background-color: #f5f5eb;
+    overflow: hidden;
+}
+
+#main_menu, #winner_screen, #pause_screen {
+     display: block;
+     position: fixed;
+     z-index: 2;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgb(0,0,0);
+     background-color: rgba(0,0,0,0.4);
+     overflow: hidden;
+ }
+
+ #select_game_mode, #winner_screen, #pause_screen, #rules_screen, #controls_screen {
+     display: none;
+ }
+
+ #start_screen, #select_game_mode, #winner_screen_content, #pause_screen_content, #rules_screen, #controls_screen {
+     background-color: #fefefe;
+     padding: 1.25em;
+     border-radius: 10px;
+     width: 12.5em;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     -ms-transform: translate(-50%, -50%);
+     transform: translate(-50%, -50%);
+ }
+
+ h1 {
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+
+ button {
+     display: block;
+     background-color: #428061;
+     border: none;
+     color: #FFFFFF;
+     font-size: 0.5em;
+     padding: 1em 2em;
+     cursor: pointer;
+     border-radius: 5px;
+     margin: 15px auto;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+
+ button:hover {
+     background-color: #36664E;
+ }
+
+ button:focus-visible {
+     outline: 2px solid rgb(0,0,0);
+ }
+
+ #game_mode_exit {
+     background-color: #FFFFFF;
+     color: #000000;
+     padding: 10px 32px;
+     margin: 10px auto;
+ }
+
+#game_mode_exit:hover {
+    text-decoration: underline;
+}
+
+#pvp {
+    display: none;
+}
+
+#board_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    height: 90%;
+    overflow: hidden;
+}
+
+
+#board {
+    background-color: #2C3E50;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    aspect-ratio: 16/12;
+}
+
+#rotate_screen {
+    display: none;
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+p {
+    font-size: 0.7em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media screen and (min-width: 1081px) {
+    #pvp {
+        display: block;
+    }
+}
+
+/*Tells the user to put the device into landscape mode*/
+@media screen and (orientation:portrait) {
+    #main_menu, #board_container {
+        display: none;
+    }
+
+    #rotate_screen {
+        display: block;
+    }
+}
