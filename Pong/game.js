@@ -1,6 +1,5 @@
 /*
 Completion Time: 2 days
-Not completed: Smoothing out touch controls, player vs player for touch controls
 */
 const canvas = document.getElementById('board');
 const canvas_w = 1600;
@@ -155,41 +154,16 @@ const executeMoves = () => {
 }
 
 /*---------------------------------------------Touch Controls-------------------------------------------------*/
-let touchY = "";
-//let touchX = "";
-
-//Find start position
-document.addEventListener("touchstart", (e) => {
-    touchY = e.changedTouches[0].pageY;
-})
-
-//Activate movements when players swipes up or down
+/*Places the paddle where the player's finger is on the Y position.*/
 document.addEventListener("touchmove", (e) => {
-    const newY = e.changedTouches[0].pageY;
-    const swipeDistance = newY - touchY;
-    if (swipeDistance < 0) {
-        p1MoveUp();
+    const touchY = e.clientY || e.changedTouches[0].pageY;
+    const canvasRect = canvas.getBoundingClientRect();
+    const pageYToCanvasY = canvas_h / canvasRect.bottom; //To translate the Y position of the page to the Y position within the canvas
+    const yPosition =  (touchY - canvasRect.top) * pageYToCanvasY; //The Y position of the touch is adjusted to account for the canvas' Y offset from the top of the page. The position is then adjust to the Y position for the canvas.
+    if (yPosition > 0 && yPosition < canvas_h - paddle_h)  {
+        p1MoveTouch(yPosition);
     }
-    else {
-        p1MoveDown();
-    }
-    touchY = newY;
 })
-
-/* For touch - trying to find the Y position within the canvas and placing the player right where their finger is at.
-canvas.addEventListener("touchmove", (e) => {
-    const y =  e.changedTouches[0].pageY-canvas.position().top;
-    p1MoveTouch(y);
-})
-
-function p1MoveTouch(newPosition) {
-    if (p1_y > 0 && !pause && game_active) {
-        ctx = canvas.getContext('2d');
-        ctx.clearRect(p1_x, p1_y, paddle_w, paddle_h); 
-        p1_y = newPosition;
-        drawP1();
-    }
-}*/
 
 /*---------------------------------------------Drawing Game Objects-------------------------------------------------*/
 function drawP1() {
@@ -263,6 +237,15 @@ function p1MoveDown() {
         ctx = canvas.getContext('2d');
         ctx.clearRect(p1_x, p1_y, paddle_w, paddle_h); 
         p1_y += paddle_speed;
+        drawP1();
+    }
+}
+
+function p1MoveTouch(newPosition) {
+    if (p1_y > 0 && !pause && game_active) {
+        ctx = canvas.getContext('2d');
+        ctx.clearRect(p1_x, p1_y, paddle_w, paddle_h); 
+        p1_y = newPosition;
         drawP1();
     }
 }
@@ -511,3 +494,37 @@ const animate = () => {
 
 //To start the loop
 window.requestAnimationFrame(animate);
+
+//Pause the game when the device is changed to portrait mode
+window.addEventListener('resize', portraitPause, true);
+
+function portraitPause(){
+    if (window.innerWidth < window.innerHeight) {
+        if (game_active) {
+            pause = true;
+        }
+    }
+    else {
+        if (pause && game_active) {
+            pauseGame();
+        }
+    }
+}
+
+/*Pause the game when the player navigates away from the page
+Show the pause menu when the player navigates back to the page*/
+document.addEventListener('visibilitychange', pageHiddenPause, false);
+
+function pageHiddenPause() {
+    if (document.hidden) {
+        if (game_active) {
+            pause = true;
+        }
+    }
+    else {
+        //Check if the device is in landscape mode before displaying the pause menu.
+        if ((window.innerWidth > window.innerHeight) && pause && game_active) {
+            pauseGame();
+        }
+    }
+}
